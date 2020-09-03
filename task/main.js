@@ -148,7 +148,7 @@ function clearbook() {
     update_book = true
 }
 
-let drag = document.querySelectorAll('div.drag')
+let drag = document.querySelectorAll('.drag')
 let mousemove = false
 console.log(drag);
 drag.forEach((item,index) =>{
@@ -156,7 +156,9 @@ drag.forEach((item,index) =>{
     console.log(item);
     item.style.zindex = `${index + 1}`
     item.addEventListener('mouseenter',()=>{
-        console.log('Работает');        
+        console.log('Работает');
+        item.addEventListener('mousedown',()=> mousemove = true)
+        item.addEventListener('mouseup',()=> mousemove = false) 
         item.addEventListener('mousemove',()=>{
             if(mousemove){
                 item.style.position = 'absolute'
@@ -164,8 +166,7 @@ drag.forEach((item,index) =>{
                 item.style.top = event.clientY - 100 + 'px'
             }
         })
-        item.addEventListener('mousedown',()=> mousemove = true)
-        item.addEventListener('mouseup',()=> mousemove = false)
+        
     })
 })       
         
