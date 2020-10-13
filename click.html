@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click</title>
+</head>
+<body>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .imgs{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+        }
+    </style>
+    
+    <div class="imgs">
+        <img src="" id="frame" alt="">
+    </div>
+    <script>
+
+        let imgs = [
+        'https://images2.wikia.nocookie.net/__cb20101129042828/uncyclopedia/images/b/b2/Plus_sign.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/1200px-Check_green_icon.svg.png'
+        ]
+        let check = 0
+        let frame = document.querySelector('#frame')
+
+        frame.setAttribute('src',imgs[check])
+
+        frame.addEventListener('click',()=>{
+            check = check == 0 ? check = 1 : check = 0
+            frame.setAttribute('src',imgs[check])
+        })
+    </script>
+</body>
+</html>
